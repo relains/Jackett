@@ -48,10 +48,18 @@ settings:
     label: Cookie
   - name: info_cookie
     type: info_cookie
-  - name: freeleech
-    type: checkbox
-    label: Search freeleech only
-    default: false
+  - name: kind
+    type: select
+    label: Choose release type
+    default: All
+    options:
+      0: All
+      3: Freeleech
+      1: Polish_lector
+      5: Polish_dubbing
+      6: Polish_subs
+      2: Non-Polish
+      4: Highlighted
   - name: drop_polish_prefix
     type: checkbox
     label: Drop the Polish title prefix
@@ -94,6 +102,7 @@ search:
     hashTag: 0
     # 0 all, 1 active, 2 dead
     incldead: 0
+    polish: "{{ .Config.kind }}"
     sort: "{{ .Config.sort }}"
     type: "{{ .Config.type }}"
 
